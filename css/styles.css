@@ -1,0 +1,92 @@
+::-moz-selection {
+	background: #e6e6e6;
+}
+::selection {
+	background: #e6e6e6;
+}
+
+* {
+	font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial,
+		sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+	/* font-family: 'Courier New', Courier, monospace; */
+}
+
+body {
+	color: #333;
+	margin: 2rem;
+	font-weight: 200;
+}
+h1,
+h3,
+h5,
+p {
+	font-weight: 200;
+	letter-spacing: 0.1rem;
+}
+
+* {
+	text-align: center;
+}
+#out {
+	text-align: left;
+}
+
+a {
+	text-decoration: none;
+	color: #339;
+	font-weight: bold;
+	border: 2px solid #fff;
+}
+a:hover {
+	text-decoration: underline;
+}
+
+input,
+button {
+	padding: 0.5rem;
+	background-color: #fff;
+	border: 2px solid #ccc;
+	border-radius: 0;
+}
+button {
+	cursor: pointer;
+}
+button:hover {
+	background-color: #eee;
+}
+a:focus,
+input:not(input[type='checkbox']):focus,
+button:focus {
+	outline: none;
+	border-color: #333;
+}
+
+input[type='checkbox'] {
+	margin-right: 1rem;
+}
+
+#checkboxes {
+	margin: 1rem;
+}
+
+.bar {
+	height: 0.25rem;
+	background-color: #339;
+	margin-bottom: 0.5rem;
+}
+
+@media (min-width: 640px) {
+	/* sm */
+}
+
+@media (min-width: 768px) {
+	/* md */
+}
+
+@media (min-width: 1024px) {
+	/* lg */
+}
+
+@media (min-width: 1280px) {
+	/* xl */
+}
