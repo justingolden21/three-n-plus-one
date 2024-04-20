@@ -67,6 +67,7 @@ input[type='checkbox'] {
 
 #checkboxes {
 	margin: 1rem;
+	accent-color: #339;
 }
 
 .bar {

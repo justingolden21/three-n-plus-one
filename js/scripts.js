@@ -8,12 +8,15 @@ window.onload = () => {
 		const showSeq = u('#show-seq').first().checked;
 		const showSeqLen = u('#show-seq-len').first().checked;
 		const showSeqBar = u('#show-seq-bar').first().checked;
+		const addHTML = showSeq || showSeqLen || showSeqBar;
 
 		let html = '';
 		let lens = [];
 		for (let i = start; i <= end; i++) {
 			const arr = threeNPlusOne(i);
-			html += `<b>${i}</b>: 
+
+			if (addHTML) {
+				html += `<b>${i}</b>: 
 			${showSeqLen ? 'Length: ' + arr.length + '<br>' : ''} 
 			${showSeq ? 'Sequence: ' + arr.join(', ') + '<br>' : ''}
 			${
@@ -23,6 +26,7 @@ window.onload = () => {
 					  }px"></div>`
 					: ''
 			} `;
+			}
 
 			// if (arr.length > max) console.log(i, arr.length);
 			lens.push(arr.length);
