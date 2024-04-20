@@ -2,6 +2,10 @@
 
 window.onload = () => {
 	u('#submit').on('click', () => {
+		u('#loading').css('display','none');
+		u('#error').css('display','none');
+
+		try {
 		const start = parseInt(u('#start').val()) || 1;
 		const end = parseInt(u('#end').val()) || 1;
 
@@ -38,6 +42,12 @@ window.onload = () => {
 		Average Length: ${average(lens)}<br><br>` + html;
 
 		u('#out').html(html);
+	} catch(err) {
+		console.log(err);
+		u('#error').css('display','block');
+	}
+
+		u('#loading').css('display','none');
 	});
 
 	u('input').on('keydown', (e) => {
