@@ -14,6 +14,7 @@
 
 	<link rel="stylesheet" href="css/styles.css" />
 	<script src="js/scripts.js"></script>
+	<script src="js/fast.js"></script>
 </head>
 
 <body>
@@ -21,8 +22,8 @@
 	<h3>an interactive an analysis of the collatz conjecture</h3>
 	<h5>The collatz conjecture is that for any n, if even, n/2, else 3n+1 and the sequence will eventually reach 1.</h5>
 	<h5>
-		Running more than 10,000 numbers may take some time. Uncheck all boxes to run faster by not rendering lots of
-		HTML. You can also
+		Running more than 10,000 numbers may take some time. Uncheck all 'show' checkboxes to run faster by not rendering lots of
+		HTML. "Faster mode" will only find the max length. You can also
 		submit with the Enter key. Learn more with
 		<a href="https://youtu.be/094y1Z2wpJg" target="_blank">Veritasium</a>.
 	</h5>
@@ -41,6 +42,9 @@
 
 		<label for="show-seq-bar">Show Sequence Bar</label>
 		<input checked id="show-seq-bar" type="checkbox" />
+
+		<label for="fast-mode">Faster Mode</label>
+		<input id="fast-mode" type="checkbox" />
 	</div>
 
 	<button id="submit">Submit</button>

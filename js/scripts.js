@@ -1,7 +1,12 @@
+// optimization todo: 1) memoization, 2) option to store length of sequence instead of sequence itself, 3) batch html rendering, 4) reduce inline css
+// options todo: 1) option to show associated number with min and max
+
 // const max = 300;
 
 window.onload = () => {
 	u('#submit').on('click', () => {
+		
+
 		u('#loading').css('display', 'none');
 		u('#error').css('display', 'none');
 
@@ -12,6 +17,16 @@ window.onload = () => {
 			const showSeq = u('#show-seq').first().checked;
 			const showSeqLen = u('#show-seq-len').first().checked;
 			const showSeqBar = u('#show-seq-bar').first().checked;
+			const fastMode = u('#fast-mode').first().checked;
+
+			if (fastMode) {
+				console.time('fast');
+				const [number, length] = FastMaxCollatz(start, end);
+				u('#out').html(`<p>Max Collatz sequence length between ${start} and ${end}: ${number}, Length: ${length}</p>`);
+				console.timeEnd('fast');
+				return;
+			} else {
+
 			const addHTML = showSeq || showSeqLen || showSeqBar;
 
 			let html = '';
@@ -47,6 +62,7 @@ window.onload = () => {
 			u('#out').html(html);
 
 			console.timeEnd('html');
+			}
 		} catch (err) {
 			console.log(err);
 			u('#error').css('display', 'block');
