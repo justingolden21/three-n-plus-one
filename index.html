@@ -1,50 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>three n plus one</title>
-		<meta charset="utf-8" />
-		<meta name="title=" content="three n plus one" />
-		<meta name="robots" content="index, follow" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="description" content="an analysis of collatz conjecture" />
-		<meta name="keywords" content="" />
-		<link rel="shortcut icon" href="img/favicon.svg">
-		<script src="js/lib/umbrella.min.js"></script>
 
-		<link rel="stylesheet" href="css/styles.css" />
-		<script src="js/scripts.js"></script>
-	</head>
-	<body>
-		<h1>three n plus one</h1>
-		<h3>an interactive an analysis of the collatz conjecture</h3>
-		<h5>The collatz conjecture is that for any n, if even, n/2, else 3n+1 and the sequence will eventually reach 1.</h5>
-		<h5>
-			Running more than 10,000 numbers may take some time. Uncheck all boxes to run faster by not rendering lots of HTML. You can also
-			submit with the Enter key. Learn more with
-			<a href="https://youtu.be/094y1Z2wpJg" target="_blank"
-				>Veritasium</a
-			>.
-		</h5>
+<head>
+	<title>three n plus one</title>
+	<meta charset="utf-8" />
+	<meta name="title=" content="three n plus one" />
+	<meta name="robots" content="index, follow" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta name="description" content="an analysis of collatz conjecture" />
+	<meta name="keywords" content="" />
+	<link rel="shortcut icon" href="img/favicon.svg">
+	<script src="js/lib/umbrella.min.js"></script>
 
-		<label for="start">Start</label>
-		<input id="start" type="number" value="1" />
-		<label for="end">End</label>
-		<input id="end" type="number" value="100" />
+	<link rel="stylesheet" href="css/styles.css" />
+	<script src="js/scripts.js"></script>
+</head>
 
-		<div id="checkboxes">
-			<label for="show-seq">Show Sequence</label>
-			<input checked id="show-seq" type="checkbox" />
+<body>
+	<h1>three n plus one</h1>
+	<h3>an interactive an analysis of the collatz conjecture</h3>
+	<h5>The collatz conjecture is that for any n, if even, n/2, else 3n+1 and the sequence will eventually reach 1.</h5>
+	<h5>
+		Running more than 10,000 numbers may take some time. Uncheck all boxes to run faster by not rendering lots of
+		HTML. You can also
+		submit with the Enter key. Learn more with
+		<a href="https://youtu.be/094y1Z2wpJg" target="_blank">Veritasium</a>.
+	</h5>
 
-			<label for="show-seq-len">Show Sequence Length</label>
-			<input checked id="show-seq-len" type="checkbox" />
+	<label for="start">Start</label>
+	<input id="start" type="number" value="1" />
+	<label for="end">End</label>
+	<input id="end" type="number" value="100" />
 
-			<label for="show-seq-bar">Show Sequence Bar</label>
-			<input checked id="show-seq-bar" type="checkbox" />
-		</div>
+	<div id="checkboxes">
+		<label for="show-seq">Show Sequence</label>
+		<input checked id="show-seq" type="checkbox" />
 
-		<button id="submit">Submit</button>
-		<p id="loading">Loading...</p>
-		<p id="error">Error</p>
-		<p id="out"></p>
-	</body>
+		<label for="show-seq-len">Show Sequence Length</label>
+		<input checked id="show-seq-len" type="checkbox" />
+
+		<label for="show-seq-bar">Show Sequence Bar</label>
+		<input checked id="show-seq-bar" type="checkbox" />
+	</div>
+
+	<button id="submit">Submit</button>
+	<p id="loading">Loading...</p>
+	<p id="error">Error</p>
+	<p id="out"></p>
+</body>
+
 </html>

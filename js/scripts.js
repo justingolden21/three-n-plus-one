@@ -2,25 +2,25 @@
 
 window.onload = () => {
 	u('#submit').on('click', () => {
-		u('#loading').css('display','none');
-		u('#error').css('display','none');
+		u('#loading').css('display', 'none');
+		u('#error').css('display', 'none');
 
 		try {
-		const start = parseInt(u('#start').val()) || 1;
-		const end = parseInt(u('#end').val()) || 1;
+			const start = parseInt(u('#start').val()) || 1;
+			const end = parseInt(u('#end').val()) || 1;
 
-		const showSeq = u('#show-seq').first().checked;
-		const showSeqLen = u('#show-seq-len').first().checked;
-		const showSeqBar = u('#show-seq-bar').first().checked;
-		const addHTML = showSeq || showSeqLen || showSeqBar;
+			const showSeq = u('#show-seq').first().checked;
+			const showSeqLen = u('#show-seq-len').first().checked;
+			const showSeqBar = u('#show-seq-bar').first().checked;
+			const addHTML = showSeq || showSeqLen || showSeqBar;
 
-		let html = '';
-		let lens = [];
-		for (let i = start; i <= end; i++) {
-			const arr = threeNPlusOne(i);
+			let html = '';
+			let lens = [];
+			for (let i = start; i <= end; i++) {
+				const arr = threeNPlusOne(i);
 
-			if (addHTML) {
-				html += `<b>${i}</b>: 
+				if (addHTML) {
+					html += `<b>${i}</b>: 
 			${showSeqLen ? 'Length: ' + arr.length + '<br>' : ''} 
 			${showSeq ? 'Sequence: ' + arr.join(', ') + '<br>' : ''}
 			${
@@ -30,24 +30,24 @@ window.onload = () => {
 					  }px"></div>`
 					: ''
 			} `;
+				}
+
+				// if (arr.length > max) console.log(i, arr.length);
+				lens.push(arr.length);
 			}
 
-			// if (arr.length > max) console.log(i, arr.length);
-			lens.push(arr.length);
-		}
-
-		html =
-			`Min Length: ${Math.min(...lens)}.
+			html =
+				`Min Length: ${Math.min(...lens)}.
 		Max Length: ${Math.max(...lens)}.
 		Average Length: ${average(lens)}<br><br>` + html;
 
-		u('#out').html(html);
-	} catch(err) {
-		console.log(err);
-		u('#error').css('display','block');
-	}
+			u('#out').html(html);
+		} catch (err) {
+			console.log(err);
+			u('#error').css('display', 'block');
+		}
 
-		u('#loading').css('display','none');
+		u('#loading').css('display', 'none');
 	});
 
 	u('input').on('keydown', (e) => {
