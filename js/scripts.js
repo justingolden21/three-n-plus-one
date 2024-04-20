@@ -5,8 +5,6 @@
 
 window.onload = () => {
 	u('#submit').on('click', () => {
-		
-
 		u('#loading').css('display', 'none');
 		u('#error').css('display', 'none');
 
@@ -22,21 +20,22 @@ window.onload = () => {
 			if (fastMode) {
 				console.time('fast');
 				const [number, length] = FastMaxCollatz(start, end);
-				u('#out').html(`<p>Max Collatz sequence length between ${start} and ${end}: ${number}, Length: ${length}</p>`);
+				u('#out').html(
+					`<p>Max Collatz sequence length between ${start} and ${end}: ${number}, Length: ${length}</p>`
+				);
 				console.timeEnd('fast');
 				return;
 			} else {
+				const addHTML = showSeq || showSeqLen || showSeqBar;
 
-			const addHTML = showSeq || showSeqLen || showSeqBar;
+				let html = '';
+				let lens = [];
+				console.time('loop');
+				for (let i = start; i <= end; i++) {
+					const arr = threeNPlusOne(i);
 
-			let html = '';
-			let lens = [];
-			console.time('loop');
-			for (let i = start; i <= end; i++) {
-				const arr = threeNPlusOne(i);
-
-				if (addHTML) {
-					html += `<b>${i}</b>: 
+					if (addHTML) {
+						html += `<b>${i}</b>: 
 			${showSeqLen ? 'Length: ' + arr.length + '<br>' : ''} 
 			${showSeq ? 'Sequence: ' + arr.join(', ') + '<br>' : ''}
 			${
@@ -46,22 +45,22 @@ window.onload = () => {
 					  }px"></div>`
 					: ''
 			} `;
+					}
+
+					// if (arr.length > max) console.log(i, arr.length);
+					lens.push(arr.length);
 				}
+				console.timeEnd('loop');
+				console.time('html');
 
-				// if (arr.length > max) console.log(i, arr.length);
-				lens.push(arr.length);
-			}
-			console.timeEnd('loop');
-			console.time('html');
-
-			html =
-				`Min Length: ${Math.min(...lens)}.
+				html =
+					`Min Length: ${Math.min(...lens)}.
 		Max Length: ${Math.max(...lens)}.
 		Average Length: ${average(lens)}<br><br>` + html;
 
-			u('#out').html(html);
+				u('#out').html(html);
 
-			console.timeEnd('html');
+				console.timeEnd('html');
 			}
 		} catch (err) {
 			console.log(err);
