@@ -16,6 +16,7 @@ window.onload = () => {
 
 			let html = '';
 			let lens = [];
+			console.time('loop');
 			for (let i = start; i <= end; i++) {
 				const arr = threeNPlusOne(i);
 
@@ -35,6 +36,8 @@ window.onload = () => {
 				// if (arr.length > max) console.log(i, arr.length);
 				lens.push(arr.length);
 			}
+			console.timeEnd('loop');
+			console.time('html');
 
 			html =
 				`Min Length: ${Math.min(...lens)}.
@@ -42,6 +45,8 @@ window.onload = () => {
 		Average Length: ${average(lens)}<br><br>` + html;
 
 			u('#out').html(html);
+
+			console.timeEnd('html');
 		} catch (err) {
 			console.log(err);
 			u('#error').css('display', 'block');
@@ -63,8 +68,9 @@ function threeNPlusOne(x) {
 	let n = x;
 	let seq = [];
 	while (n != 1) {
-		if (n % 2 == 0) {
-			n /= 2;
+		// n % 2 === 0 (for positive integers)
+		if (!(n & 1)) {
+			n >>= 1; // n /= 2 (for integers)
 		} else {
 			n = 3 * n + 1;
 		}
